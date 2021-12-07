@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Float.HttpServer</AssemblyName>
+    <AssemblyAuthor>Float</AssemblyAuthor>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <CodeAnalysisRuleSet>$(SolutionDir)\stylecop.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <PackageId>$(AssemblyName)</PackageId>
+    <Title>$(AssemblyName)</Title>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="$(SolutionDir)/stylecop.json" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' " />
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <PackageDescription>$(AssemblyDescription)</PackageDescription>
+    <Summary>$(AssemblyDescription)</Summary>
+    <Description>$(AssemblyDescription)</Description>
+    <Authors>$(AssemblyAuthor)</Authors>
+    <Owners>$(AssemblyAuthor)</Owners>
+    <PackOnBuild>true</PackOnBuild>
+    <Deterministic>true</Deterministic>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="../readme.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+</Project>
