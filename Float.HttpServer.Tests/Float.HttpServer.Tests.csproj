@@ -15,7 +15,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Float.TinCan.ActivityLibrary" Version="0.7.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Float.HttpServer\Float.HttpServer.csproj" />
