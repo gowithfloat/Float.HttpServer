@@ -1,4 +1,4 @@
-# Http Server
+# Float.HttpServer [![Test](https://github.com/gowithfloat/Float.HttpServer/actions/workflows/test.yml/badge.svg)](https://github.com/gowithfloat/Float.HttpServer/actions/workflows/test.yml) [![NuGet](https://img.shields.io/nuget/v/Float.HttpServer)](https://www.nuget.org/packages/Float.HttpServer/)
 
 This provides a local HTTP server on device. It allows the app to create a server by defining routes for given methods.
 
