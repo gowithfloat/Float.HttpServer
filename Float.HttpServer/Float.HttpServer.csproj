@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2;netstandard2.1;net6.0;net7.0</TargetFrameworks>
     <AssemblyName>Float.HttpServer</AssemblyName>
     <AssemblyAuthor>Float</AssemblyAuthor>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -27,6 +27,12 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>11.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>11.0</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -34,6 +40,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="../readme.md" Pack="true" PackagePath="\"/>
+    <None Include="../readme.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>
