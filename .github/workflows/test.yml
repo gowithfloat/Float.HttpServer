@@ -8,5 +8,5 @@ on:
 
 jobs:
   float-http-server:
-    uses: gowithfloat/github-workflows/.github/workflows/dotnot_test.yml@main
+    uses: gowithfloat/github-workflows/.github/workflows/dotnet_test.yml@main
     secrets: inherit
