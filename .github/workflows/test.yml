@@ -8,5 +8,5 @@ on:
 
 jobs:
   float-http-server:
-    uses: gowithfloat/Float.FileDownloader/.github/workflows/test.yml@main
+    uses: gowithfloat/Float.FileDownloader/.github/workflows/test.yml@maui-ready
     secrets: inherit
