@@ -227,7 +227,10 @@ namespace Float.HttpServer
             {
                 Stop();
                 listener.Close();
+                cancellationTokenSource.Dispose();
                 serverThread = null;
+                startEvent.Dispose();
+                stopEvent.Dispose();
             }
 
             disposed = true;
