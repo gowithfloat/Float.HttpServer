@@ -18,15 +18,18 @@ jobs:
           3.1.x
           6.0.x
           7.0.x
+    - name: Get Version from tag
+      run: echo "VERSION=${{ github.event.release.name }}" >> $GITHUB_ENV      
+    
     - name: Restore dependencies
       run: dotnet restore
     - name: Build and Set Assembly Version
       run: ./build.sh --task=Build --configuration=Release
     - name: Update Version
-      run: sed -i "" "s/<Version><\/Version>/<Version>${{ github.event.release.name }}<\/Version>/" ./Float.HttpServer/Float.HttpServer.csproj
+      run: sed -i "" "s/<Version><\/Version>/<Version>${{ env.VERSION }}<\/Version>/" ./Float.HttpServer/Float.HttpServer.csproj
     - name: Pack and Upload
       run: dotnet pack --configuration Release --no-restore
     - name: Deploy to NuGet
       env:
         FLOAT_NUGET_TOKEN: ${{ secrets.FLOAT_NUGET_TOKEN }}
-      run: dotnet nuget push ./Float.HttpServer/Float.HttpServer.${{ github.event.release.name }}.nupkg --api-key "${FLOAT_NUGET_TOKEN}" --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./Float.HttpServer/Float.HttpServer.${{ env.VERSION }}.nupkg --api-key "${FLOAT_NUGET_TOKEN}" --source https://api.nuget.org/v3/index.json
