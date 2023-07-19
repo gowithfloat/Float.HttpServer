@@ -1,23 +1,26 @@
 name: Deploy
 
 on:
-  workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 6.0.x
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: |
+          3.1.x
+          6.0.x
+          7.0.x
 
-      - name: Deploy to NuGet
-        env:
-          FLOAT_NUGET_TOKEN: ${{ secrets.FLOAT_NUGET_TOKEN }}
-        run: ./build.sh --task=Deploy --configuration=Release --nugetUrl="https://api.nuget.org/v3/index.json" --nugetToken="${FLOAT_NUGET_TOKEN}"
+    - name: Deploy to NuGet
+      env:
+        FLOAT_NUGET_TOKEN: ${{ secrets.FLOAT_NUGET_TOKEN }}
+      run: ./build.sh --task=Deploy --configuration=Release --nugetUrl="https://api.nuget.org/v3/index.json" --nugetToken="${FLOAT_NUGET_TOKEN}"
