@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2;net6.0;net7.0</TargetFrameworks>
     <AssemblyName>Float.HttpServer</AssemblyName>
     <AssemblyAuthor>Float</AssemblyAuthor>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -8,6 +8,7 @@
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <PackageId>$(AssemblyName)</PackageId>
     <Title>$(AssemblyName)</Title>
+    <Version></Version>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
