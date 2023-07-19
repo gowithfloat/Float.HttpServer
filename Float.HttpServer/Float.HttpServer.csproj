@@ -8,6 +8,7 @@
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <PackageId>$(AssemblyName)</PackageId>
     <Title>$(AssemblyName)</Title>
+    <Version></Version>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>

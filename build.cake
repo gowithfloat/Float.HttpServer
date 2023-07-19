@@ -68,7 +68,7 @@ Task("GitVersion")
         Information($"NuGet version: {gitVersion.AssemblyFileVersion}");
         Information($"Informational version: {gitVersion.AssemblyInformationalVersion}");
 
-        var visible = isReleaseBuild 
+        var visible = isReleaseBuild
             ? new string[] {}
             : new [] { testProjectName };
 
@@ -92,7 +92,6 @@ Task("GitVersion")
     });
 
 Task("Build")
-    .IsDependentOn("RestorePackages")
     .IsDependentOn("GitVersion")
     .Does(() =>
     {
@@ -111,12 +110,12 @@ Task("Test")
     .WithCriteria(!isReleaseBuild)
     .Does(() =>
     {
-        var testSettings = new DotNetCoreTestSettings 
+        var testSettings = new DotNetCoreTestSettings
         {
             Loggers = new[] { "nunit" },
         };
 
-        var coverletSettings = new CoverletSettings 
+        var coverletSettings = new CoverletSettings
         {
             CollectCoverage = true,
             CoverletOutputFormat = CoverletOutputFormat.opencover,
