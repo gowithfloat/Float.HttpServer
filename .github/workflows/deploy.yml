@@ -29,4 +29,4 @@ jobs:
     - name: Deploy to NuGet
       env:
         FLOAT_NUGET_TOKEN: ${{ secrets.FLOAT_NUGET_TOKEN }}
-      run: dotnet nuget push ./Float.HttpServer/Float.HttpServer/bin/Release/Float.HttpServer.${{ github.event.release.name }}.nupkg --api-key "${FLOAT_NUGET_TOKEN}" --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./Float.HttpServer/bin/Release/Float.HttpServer.${{ github.event.release.name }}.nupkg --api-key "${FLOAT_NUGET_TOKEN}" --source https://api.nuget.org/v3/index.json
